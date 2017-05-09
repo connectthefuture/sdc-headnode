@@ -758,9 +758,9 @@ if setup_state_not_seen "setup_complete" \
         # status 3 from `imgadm get $img_uuid` to see if the image is already
         # installed in the zpool.
         if [[ ! -d /zones/${img_uuid} ]]; then
-            img_name=$(json -f /usbkey/images/$img_uuid.imgmanifest name)
-            img_ver=$(json -f /usbkey/images/$img_uuid.imgmanifest version)
-            printf_log "%-58s" "importing image $img_uuid ($img_name@$img_ver)"
+            img_namever=$(json -f /usbkey/images/$img_uuid.imgmanifest \
+                -a -d@ name version)
+            printf_log "%-58s" "importing image ${img_namever:0:42})"
             imgadm install -m /usbkey/images/$img_uuid.imgmanifest \
                 -f /usbkey/images/$img_uuid.imgfile
             printf_timer "done (%ss)\n" >&${CONSOLE_FD}

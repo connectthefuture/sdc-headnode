@@ -205,7 +205,7 @@ bfd_find_build_files(bfd, next)
 			};
 
 			if (p.p_get_bit_json) {
-				var data = fs.readFileSync(mf.mf_path,
+				var data = mod_fs.readFileSync(mf.mf_path,
 				    {encoding: 'utf8'});
 				try {
 					mf.mf_bit_json = JSON.parse(data);
