@@ -154,7 +154,7 @@ dfop_download_file_http(arg, next)
 	arg.bar.add(dfop.dfop_bit.bit_name, dfop.dfop_expected_size);
 
 	var start = Date.now();
-	lib_common.get_via_http(dfop.dfop_url, function (err, res) {
+	lib_common.get_via_http(dfop.dfop_url, {}, function (err, res) {
 		if (err) {
 			next(err);
 			return;
