@@ -760,10 +760,10 @@ if setup_state_not_seen "setup_complete" \
         if [[ ! -d /zones/${img_uuid} ]]; then
             img_namever=$(json -f /usbkey/images/$img_uuid.imgmanifest \
                 -a -d@ name version)
-            printf_log "%-58s" "importing image ${img_namever:0:42})"
+            printf_log "%-58s" "importing image ${img_namever:0:37}... "
             imgadm install -m /usbkey/images/$img_uuid.imgmanifest \
                 -f /usbkey/images/$img_uuid.imgfile
-            printf_timer "done (%ss)\n" >&${CONSOLE_FD}
+            printf_timer "done (%ss)\n"
         fi
     done
 
