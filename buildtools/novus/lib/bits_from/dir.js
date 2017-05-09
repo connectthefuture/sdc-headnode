@@ -121,7 +121,8 @@ bfd_find_build_files(bfd, next)
 			].join('')),
 			p_ents: [],
 			p_base: f.base,
-			p_ext: f.symlink_ext || f.ext,
+			p_ext: f.ext,
+			p_symlink_ext: f.symlink_ext,
 			p_name: f.name,
 			p_get_bit_json: f.get_bit_json
 		});
@@ -201,7 +202,7 @@ bfd_find_build_files(bfd, next)
 			var mf = {
 				mf_name: p.p_name,
 				mf_path: p.p_ents[p.p_ents.length - 1],
-				mf_ext: p.p_ext
+				mf_ext: p.p_symlink_ext || p.p_ext
 			};
 
 			if (p.p_get_bit_json) {

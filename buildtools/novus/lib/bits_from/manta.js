@@ -135,7 +135,8 @@ bfm_find_build_files(bfm, next)
 			p_count: 0,
 			p_ent: null,
 			p_base: f.base,
-			p_ext: f.symlink_ext || f.ext,
+			p_ext: f.ext,
+			p_symlink_ext: f.symlink_ext,
 			p_name: f.name,
 			p_get_bit_json: Boolean(f.get_bit_json)
 		});
@@ -169,7 +170,7 @@ bfm_find_build_files(bfm, next)
 		var mf = {
 			mf_name: p.p_name,
 			mf_path: p.p_ent,
-			mf_ext: p.p_ext,
+			mf_ext: p.p_symlink_ext || p.p_ext,
 		};
 
 		/*
